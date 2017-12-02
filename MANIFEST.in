@@ -1,0 +1,4 @@
+include README.md LICENSE changelog.md
+recursive-include test test*.py __init__.py
+graft docs
+prune docs/_build
