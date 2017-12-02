@@ -9,7 +9,7 @@ except ImportError:
 import weibo_api
 
 setup(
-    name='weibo_api',
+    name='weibo-api',
     keywords=['weibo', 'network', 'http', 'JSON'],
     version=weibo_api.__version__,
     packages=['weibo_api', 'weibo_api.weibo', 'weibo_api.config', 'weibo_api.utils'],

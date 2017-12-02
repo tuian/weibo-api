@@ -151,10 +151,10 @@ class Peoples(Base):
     @property
     def _card_group(self):
         """
-        第一个type为11的card的card_group
+        带title的card的card_group
         :return: 
         """
-        return filter(lambda x: x.card_type == 11, self._cards)[0].card_group
+        return list(filter(lambda x: not hasattr(x, 'card_style'), self._cards))[0].card_group
 
     @property
     def total(self):
@@ -183,9 +183,6 @@ class Peoples(Base):
         self.refresh()
         self._page_num = page_num
         for card in list(filter(lambda x: hasattr(x, 'user'), self._card_group)):
-            # uid = card.user.id
-            # fan = People(uid, None, self._session)
-            # fan = build_weibo_obj_from_dict(card.user, self._session, cls=People, use_cache=True)
             cache = {'userInfo': card.user.raw_data()}
             fan = People(card.user.id, cache, self._session)
             yield fan
