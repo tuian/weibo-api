@@ -8,7 +8,7 @@
 from weibo_api.client import WeiboClient
 client = WeiboClient()
 
-p = client.people('5623741644')
+p = client.people('5623741644')  # 用户ID，后期加可以根据昵称创建用户
 print(type(p.name))
 print(u"用户名：{}".format(p.name))
 print(u"用户简介：{}".format(p.description))
